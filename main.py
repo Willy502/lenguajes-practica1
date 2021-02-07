@@ -1,8 +1,8 @@
-from Menu import *
+from src.menu import *
 
-class App:
+class Main:
 
     def __init__(self):
         menu = Menu()
 
-app = App()
+main = Main()

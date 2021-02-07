@@ -1,4 +1,4 @@
-from Options import *
+from .options import *
 
 class Menu:
 
@@ -16,13 +16,12 @@ class Menu:
         print("6. Salir")
         print("> ", end='')
         answer = input()
-        print("------------------------------------")
-        print("")
+        print("------------------------------------\n")
         self.select_menu_option(answer)
 
     def select_menu_option(self, option):
         if option == "1":
-            open_file = Options().open_file()
+            open_file = Options().open_file(self)
         elif option == "2":
             print(option)
         elif option == "3":
@@ -34,5 +33,5 @@ class Menu:
         elif option == "6":
             quit()
         else:
-            print("Selecciona una opción válida")
+            print("Selecciona una opción válida\n")
             self.create_menu()
