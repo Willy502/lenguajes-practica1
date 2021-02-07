@@ -4,5 +4,6 @@ from tkinter import filedialog as fd
 class Options:
 
     def open_file(self):
-        name = fd.askopenfilename()
-        print(name)
+        file = fd.askopenfile(title='Open files', filetypes=[('text files', '*.txt')])
+        for line in file:
+            print(line)
