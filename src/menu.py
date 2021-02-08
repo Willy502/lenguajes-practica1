@@ -12,7 +12,7 @@ class Menu:
         print("Selecciona una opción a continuación")
         print("1. Cargar archivo de entrada")
         print("2. Desplegar listas ordenadas")
-        print("3. Despleagar búsquedas")
+        print("3. Desplegar búsquedas")
         print("4. Desplegar todas")
         print("5. Desplegar todas a archivo")
         print("6. Salir")
@@ -28,7 +28,9 @@ class Menu:
             lista = PracticaSingleton.get_instance().file
             print(Helper().get_file_readed(lista))
         elif option == "3":
-            print(option)
+            search = Options().searchs()
+            print(search)
+            self.create_menu()
         elif option == "4":
             print(option)
         elif option == "5":
