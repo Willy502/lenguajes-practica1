@@ -9,10 +9,10 @@ class Options:
     def open_file(self, mn):
         root = tk.Tk()
         root.withdraw()
-        file = fd.askopenfile(title='Open files', filetypes=[('text files', '*.txt')])
+        file = fd.askopenfilename(title='Open files', filetypes=[('text files', '*.txt')])
 
         if file is not None:
-            PracticaSingleton.get_instance().file = file
+            PracticaSingleton().file = file
             print("Archivo cargado exitosamente\n")
 
         else:
@@ -20,8 +20,9 @@ class Options:
         mn.create_menu()
 
     def searchs(self):
-        lista = PracticaSingleton.get_instance().file
-        data = Helper().get_file_readed(lista)
+        lista = PracticaSingleton().file
+        x = open(lista, 'r')
+        data = Helper().get_file_readed(x)
 
         result = ""
         for key, value in data.items():
@@ -38,22 +39,29 @@ class Options:
                     result += "NO ENCONTRADO\n"
         return result
 
+    def bubble_sort(self, data_list):
+        result = ""
+        for i in range(len(data_list)):
+            for j in range(len(data_list) - 1):
+                if data_list[j] > data_list[j + 1]:
+                    data_list[j], data_list[j + 1] = data_list[j + 1], data_list[j]
+
+        for x in data_list:
+            result += x + ","
+        result = result[:-1]
+        result += "\n"
+                
+        return result
+
     def order(self):
-        lista = PracticaSingleton.get_instance().file
-        data = Helper().get_file_readed(lista)
+        lista = PracticaSingleton().file
+        x = open(lista, 'r')
+        data = Helper().get_file_readed(x)
 
         result = ""
         for key, value in data.items():
             if value["ORDENAR"] is not False:
                 result += key + " ORDENADOS = "
                 data_list = value["data"].split(",")
-                for i in range(len(data_list)):
-                    for j in range(len(data_list) - 1):
-                        if data_list[j] > data_list[j + 1]:
-                            data_list[j], data_list[j + 1] = data_list[j + 1], data_list[j]
-
-                for x in data_list:
-                    result += x + ","
-                result = result[:-1]
-                result += "\n"
+                result += self.bubble_sort(data_list)
         return result
