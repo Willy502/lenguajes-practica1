@@ -25,12 +25,11 @@ class Menu:
         if option == "1":
             open_file = Options().open_file(self)
         elif option == "2":
-            lista = PracticaSingleton.get_instance().file
-            print(Helper().get_file_readed(lista))
+            order = Options().order()
+            print(order)
         elif option == "3":
             search = Options().searchs()
             print(search)
-            self.create_menu()
         elif option == "4":
             print(option)
         elif option == "5":
@@ -39,4 +38,4 @@ class Menu:
             quit()
         else:
             print("Selecciona una opción válida\n")
-            self.create_menu()
+        self.create_menu()
