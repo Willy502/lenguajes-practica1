@@ -2,7 +2,6 @@ class PracticaSingleton:
 
     __instance = None
     file = None
-    lists = {}
 
     def __init__(self):
         if PracticaSingleton.__instance is None:

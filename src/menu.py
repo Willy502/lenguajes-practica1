@@ -1,4 +1,6 @@
 from .options import *
+from .practica_singleton import *
+from commons.helper import *
 
 class Menu:
 
@@ -23,7 +25,8 @@ class Menu:
         if option == "1":
             open_file = Options().open_file(self)
         elif option == "2":
-            print(option)
+            lista = PracticaSingleton.get_instance().file
+            print(Helper().get_file_readed(lista))
         elif option == "3":
             print(option)
         elif option == "4":
