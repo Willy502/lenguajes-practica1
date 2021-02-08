@@ -22,6 +22,11 @@ class Menu:
         self.select_menu_option(answer)
 
     def select_menu_option(self, option):
+        if option in ["2", "3", "4", "5"]:
+            if PracticaSingleton().file is None:
+                print("Para acceder a estas opciones primero debes cargar un archivo\n")
+                self.create_menu()
+
         if option == "1":
             open_file = Options().open_file(self)
         elif option == "2":
