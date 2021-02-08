@@ -39,7 +39,11 @@ class Menu:
             d_all = Options().deploy_all()
             print(d_all)
         elif option == "5":
-            print(option)
+            d_all_html = Options().deploy_to_html()
+            if d_all_html:
+                print("HTML generado exitosamente\n")
+            else:
+                print("El documento HTML no se ha podido generar con exito\n")
         elif option == "6":
             quit()
         else:

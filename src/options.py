@@ -86,3 +86,8 @@ class Options:
                 data_list = value["data"].split(",")
                 result += self.bubble_sort(data_list)
         return result
+
+    def deploy_to_html(self):
+        data = self.deploy_all()
+        generated = Helper().generate_html(data)
+        return generated
