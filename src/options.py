@@ -28,15 +28,33 @@ class Options:
         for key, value in data.items():
             if value["BUSCAR"] is not False:
                 result += key + ": " + value["data"] + " BUSQUEDA POSICIONES = "
-                if value["BUSCAR"] in value["data"]:
-                    data_list = value["data"].split(",")
-                    for i in range(len(data_list)):
-                        if value["BUSCAR"] == data_list[i]:
-                            result += str(i + 1) + ","
-                    result = result[:-1]
-                    result += "\n"
-                else:
-                    result += "NO ENCONTRADO\n"
+                result += self.search_data_list(value["data"], value["BUSCAR"])
+        return result
+
+    def search_data_list(self, data, search):
+        result = ""
+        if search in data:
+            data_list = data.split(",")
+            for i in range(len(data_list)):
+                if search == data_list[i]:
+                    result += str(i + 1) + ","
+            result = result[:-1]
+            result += "\n"
+        else:
+            result += "NO ENCONTRADO\n"
+        return result
+    
+    def order(self):
+        lista = PracticaSingleton().file
+        x = open(lista, 'r')
+        data = Helper().get_file_readed(x)
+
+        result = ""
+        for key, value in data.items():
+            if value["ORDENAR"] is not False:
+                result += key + " ORDENADOS = "
+                data_list = value["data"].split(",")
+                result += self.bubble_sort(data_list)
         return result
 
     def bubble_sort(self, data_list):
@@ -53,13 +71,16 @@ class Options:
                 
         return result
 
-    def order(self):
+    def deploy_all(self):
         lista = PracticaSingleton().file
         x = open(lista, 'r')
         data = Helper().get_file_readed(x)
 
         result = ""
         for key, value in data.items():
+            if value["BUSCAR"] is not False:
+                result += key + ": " + value["data"] + " BUSQUEDA POSICIONES = "
+                result += self.search_data_list(value["data"], value["BUSCAR"])
             if value["ORDENAR"] is not False:
                 result += key + " ORDENADOS = "
                 data_list = value["data"].split(",")

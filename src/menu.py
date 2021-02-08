@@ -31,10 +31,8 @@ class Menu:
             search = Options().searchs()
             print(search)
         elif option == "4":
-            a = PracticaSingleton()
-            print(a.file)
-            b = PracticaSingleton()
-            print(b.file)
+            d_all = Options().deploy_all()
+            print(d_all)
         elif option == "5":
             print(option)
         elif option == "6":
