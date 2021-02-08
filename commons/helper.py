@@ -1,3 +1,6 @@
+import webbrowser
+import os
+
 class Helper:
 
     def get_file_readed(self, file):
@@ -79,8 +82,10 @@ class Helper:
         </body>
         </html>
         '''
-        file = open('out/practica1.html', 'w')
+        file = open('practica1.html', 'w')
         file.write(html)
         file.close()
+        filename = 'file://' + os.path.realpath(file.name)
+        webbrowser.open_new_tab(filename)
         generated = True
         return generated
