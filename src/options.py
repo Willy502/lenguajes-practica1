@@ -33,15 +33,18 @@ class Options:
 
     def search_data_list(self, data, search):
         result = ""
-        if search in data:
-            data_list = data.split(",")
+        data_list = data.split(",")
+        for searching in search.split(","):
             for i in range(len(data_list)):
-                if search == data_list[i]:
+                if searching == data_list[i]:
                     result += str(i + 1) + ","
+
+        if result == "":
+            result = "NO ENCONTRADO\n"
+        else:
             result = result[:-1]
             result += "\n"
-        else:
-            result += "NO ENCONTRADO\n"
+
         return result
     
     def order(self):
