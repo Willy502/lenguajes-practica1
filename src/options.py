@@ -10,8 +10,8 @@ class Options:
         root = tk.Tk()
         root.withdraw()
         file = fd.askopenfilename(title='Open files', filetypes=[('text files', '*.txt')])
-
-        if file is not None:
+        
+        if file is not "":
             PracticaSingleton().file = file
             print("Archivo cargado exitosamente\n")
 
