@@ -11,7 +11,7 @@ class Options:
         root.withdraw()
         file = fd.askopenfilename(title='Open files', filetypes=[('text files', '*.txt')])
         
-        if file is not "":
+        if file != "":
             PracticaSingleton().file = file
             print("Archivo cargado exitosamente\n")
 
