@@ -19,7 +19,7 @@ class Options:
             print("No se ha seleccionado ningun archivo\n")
         mn.create_menu()
 
-    def searchs(self):
+    def searches(self):
         lista = PracticaSingleton().file
         x = open(lista, 'r')
         data = Helper().get_file_readed(x)

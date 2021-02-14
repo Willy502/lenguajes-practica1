@@ -33,7 +33,7 @@ class Menu:
             order = Options().order()
             print(order)
         elif option == "3":
-            search = Options().searchs()
+            search = Options().searches()
             print(search)
         elif option == "4":
             d_all = Options().deploy_all()
