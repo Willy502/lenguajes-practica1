@@ -9,7 +9,7 @@ class Options:
     def open_file(self, mn):
         root = tk.Tk()
         root.withdraw()
-        file = fd.askopenfilename(title='Open files', filetypes=[('text files', '*.txt')])
+        file = fd.askopenfilename(title='Open files', filetypes=[('text files', '*.txt *.lfp')])
         
         if file != "":
             PracticaSingleton().file = file

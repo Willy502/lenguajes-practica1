@@ -15,16 +15,16 @@ class Helper:
 
                 if "BUSCAR" not in to_trim_list:
                     data_options["BUSCAR"] = False
-                    data_options["data"] = to_trim_list.split("ORDENAR")[0].strip()
+                    data_options["data"] = "".join(to_trim_list.split("ORDENAR")[0].split())
 
                 else:
                     data_lists = to_trim_list.split("ORDENAR")
                     if "BUSCAR" not in data_lists[0]:
-                        data_list = data_lists[0].strip()
-                        data_options["BUSCAR"] = data_lists[1].split("BUSCAR")[1].strip()
+                        data_list = "".join(data_lists[0].split())
+                        data_options["BUSCAR"] = "".join(data_lists[1].split("BUSCAR")[1].split())
                     else:
-                        data_list = data_lists[0].split("BUSCAR")[0].strip()
-                        data_options["BUSCAR"] = data_lists[0].split("BUSCAR")[1].strip()
+                        data_list = "".join(data_lists[0].split("BUSCAR")[0].split())
+                        data_options["BUSCAR"] = "".join(data_lists[0].split("BUSCAR")[1].split())
                     data_options["data"] = data_list
                     
                 if data_options["BUSCAR"] != False:
@@ -36,9 +36,9 @@ class Helper:
                 data_options["ORDENAR"] = False
                 data_options["BUSCAR"] = False
                 if "BUSCAR" in to_trim_list:
-                    data_list = to_trim_list.split("BUSCAR")[0].strip()
+                    data_list = "".join(to_trim_list.split("BUSCAR")[0].split())
                     data_options["data"] = data_list
-                    data_options["BUSCAR"] = to_trim_list.split("BUSCAR")[1].strip()
+                    data_options["BUSCAR"] = "".join(to_trim_list.split("BUSCAR")[1].split())
 
                 if data_options["BUSCAR"] != False:
                     if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
