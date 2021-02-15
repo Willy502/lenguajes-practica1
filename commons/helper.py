@@ -15,7 +15,7 @@ class Helper:
 
                 if "BUSCAR" not in to_trim_list:
                     data_options["BUSCAR"] = False
-                    data_options["data"] = "".join(to_trim_list.split("ORDENAR")[0].split())
+                    data_options["DATA"] = "".join(to_trim_list.split("ORDENAR")[0].split())
 
                 else:
                     data_lists = to_trim_list.split("ORDENAR")
@@ -25,26 +25,30 @@ class Helper:
                     else:
                         data_list = "".join(data_lists[0].split("BUSCAR")[0].split())
                         data_options["BUSCAR"] = "".join(data_lists[0].split("BUSCAR")[1].split())
-                    data_options["data"] = data_list
+                    data_options["DATA"] = data_list
                     
                 if data_options["BUSCAR"] != False:
                     if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
                         data_options["BUSCAR"] = data_options["BUSCAR"][:-1]
-                lists[list_name] = data_options
                     
             else:
                 data_options["ORDENAR"] = False
                 data_options["BUSCAR"] = False
                 if "BUSCAR" in to_trim_list:
                     data_list = "".join(to_trim_list.split("BUSCAR")[0].split())
-                    data_options["data"] = data_list
+                    data_options["DATA"] = data_list
                     data_options["BUSCAR"] = "".join(to_trim_list.split("BUSCAR")[1].split())
 
                 if data_options["BUSCAR"] != False:
                     if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
                         data_options["BUSCAR"] = data_options["BUSCAR"][:-1]
-                lists[list_name] = data_options
 
+            if data_options["DATA"][len(data_options["DATA"]) - 1] == ",":
+                data_options["DATA"] = data_options["DATA"][:-1]
+
+            lists[list_name] = data_options
+
+        print(lists)
         return lists
 
     def generate_html(self, data):

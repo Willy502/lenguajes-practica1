@@ -27,8 +27,8 @@ class Options:
         result = ""
         for key, value in data.items():
             if value["BUSCAR"] is not False:
-                result += key + ": " + value["data"] + " BUSQUEDA POSICIONES = "
-                result += self.search_data_list(value["data"], value["BUSCAR"])
+                result += key + ": " + value["DATA"] + " BUSQUEDA POSICIONES = "
+                result += self.search_data_list(value["DATA"], value["BUSCAR"])
         return result
 
     def search_data_list(self, data, search):
@@ -56,7 +56,7 @@ class Options:
         for key, value in data.items():
             if value["ORDENAR"] is not False:
                 result += key + " ORDENADOS = "
-                data_list = value["data"].split(",")
+                data_list = value["DATA"].split(",")
                 result += self.bubble_sort(data_list)
         return result
 
@@ -82,11 +82,11 @@ class Options:
         result = ""
         for key, value in data.items():
             if value["BUSCAR"] is not False:
-                result += key + ": " + value["data"] + " BUSQUEDA POSICIONES = "
-                result += self.search_data_list(value["data"], value["BUSCAR"])
+                result += key + ": " + value["DATA"] + " BUSQUEDA POSICIONES = "
+                result += self.search_data_list(value["DATA"], value["BUSCAR"])
             if value["ORDENAR"] is not False:
                 result += key + " ORDENADOS = "
-                data_list = value["data"].split(",")
+                data_list = value["DATA"].split(",")
                 result += self.bubble_sort(data_list)
         return result
 
