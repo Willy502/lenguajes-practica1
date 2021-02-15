@@ -64,7 +64,7 @@ class Options:
         result = ""
         for i in range(len(data_list)):
             for j in range(len(data_list) - 1):
-                if data_list[j] > data_list[j + 1]:
+                if int(data_list[j]) > int(data_list[j + 1]):
                     data_list[j], data_list[j + 1] = data_list[j + 1], data_list[j]
 
         for x in data_list:
