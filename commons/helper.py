@@ -7,8 +7,8 @@ class Helper:
         lists = {}
         for line in file:
             data_options = {}
-            list_name = line.split("=")[0]
-            to_trim_list = line.split("=")[1]
+            list_name = "".join(line.split("=")[0].split())
+            to_trim_list = line.split("=")[1].upper()
             
             if "ORDENAR" in to_trim_list:
                 data_options["ORDENAR"] = True
@@ -27,10 +27,6 @@ class Helper:
                         data_options["BUSCAR"] = "".join(data_lists[0].split("BUSCAR")[1].split())
                     data_options["DATA"] = data_list
                     
-                if data_options["BUSCAR"] != False:
-                    if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
-                        data_options["BUSCAR"] = data_options["BUSCAR"][:-1]
-                    
             else:
                 data_options["ORDENAR"] = False
                 data_options["BUSCAR"] = False
@@ -39,9 +35,9 @@ class Helper:
                     data_options["DATA"] = data_list
                     data_options["BUSCAR"] = "".join(to_trim_list.split("BUSCAR")[1].split())
 
-                if data_options["BUSCAR"] != False:
-                    if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
-                        data_options["BUSCAR"] = data_options["BUSCAR"][:-1]
+            if data_options["BUSCAR"] != False:
+                if data_options["BUSCAR"][len(data_options["BUSCAR"]) - 1] == ",":
+                    data_options["BUSCAR"] = data_options["BUSCAR"][:-1]
 
             if data_options["DATA"][len(data_options["DATA"]) - 1] == ",":
                 data_options["DATA"] = data_options["DATA"][:-1]
