@@ -44,7 +44,6 @@ class Helper:
 
             lists[list_name] = data_options
 
-        print(lists)
         return lists
 
     def generate_html(self, data):
